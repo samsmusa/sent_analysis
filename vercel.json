@@ -4,10 +4,6 @@
     {
       "src": "./run.py",
       "use": "@vercel/python"
-    },
-    {
-      "src": "build_files.sh",
-      "use": "@vercel/static-build"
     }
   ],
   "routes": [
