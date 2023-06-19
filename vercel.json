@@ -1,8 +1,16 @@
 {
-  "build": {
-    "src": "./run.py",
-    "use": "@vercel/python"
-  },
+  "version": 2,
+  "builds": [
+    {
+      "src": "./run.py",
+      "use": "@vercel/python",
+      "runtime": "python3.11"
+    },
+    {
+      "src": "build_files.sh",
+      "use": "@vercel/static-build"
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",

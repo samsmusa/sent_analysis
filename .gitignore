@@ -110,3 +110,4 @@ babel.config.js
 mix-manifest.json
 webpack.mix.js
 tailwind.config.js
+.vercel
