@@ -3,11 +3,7 @@
   "builds": [
     {
       "src": "run.py",
-      "use": "@vercel/python"
-    },
-    {
-      "src": "run.py",
-      "use": "@vercel/static-build",
+      "use": "@vercel/python",
       "config": {
         "distDir": "static_build"
       }
