@@ -8,7 +8,7 @@ Find component inside
 see Sentiment analysis model  [https://huggingface.co/StatsGary/setfit-ft-sentinent-eval](https://huggingface.co/StatsGary/setfit-ft-sentinent-eval)
 ## Getting Started
 
-### Installation
+### Installation(python-v3.11 required)
 
 1. Clone the repository:
 
@@ -24,7 +24,7 @@ see Sentiment analysis model  [https://huggingface.co/StatsGary/setfit-ft-sentin
    
 3. Create python virtual environment
     ```bash
-    ptyhon3 -m venv env 
+    ptyhon3.11 -m venv env 
     ```
 4. Activate Virtual environment
     ```bash
@@ -99,7 +99,3 @@ Example response:
   "value": 1
 }
 ```
-
-## Deployment
-
-This application can be deployed using [Vercel](https://vercel.com/) or any other hosting platform that supports Python applications. Refer to the [Deployment Guide](https://vercel.com/guides/deploying-fastapi-to-vercel) for deploying a FastAPI application to Vercel.

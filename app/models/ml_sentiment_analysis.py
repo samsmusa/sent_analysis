@@ -1,18 +1,13 @@
 import logging
 import re
+from enum import Enum
 from time import time
 
 import emoji
+from fastapi import HTTPException
 from setfit import SetFitModel
 
-logger = logging.getLogger('uvicorn')
-
-
-class SingletonClass(object):
-    def __new__(cls):
-        if not hasattr(cls, 'instance'):
-            cls.instance = super(SingletonClass, cls).__new__(cls)
-        return cls.instance
+logger = logging.getLogger(__name__)
 
 
 def clean_text(text):
@@ -45,16 +40,34 @@ def clean_text(text):
     return text
 
 
+class Sentiment(Enum):
+    POSITIVE = 1
+    NEGATIVE = 0
+    NEUTRAL = 2
+
+
+def make_response(value):
+    match value:
+        case Sentiment.POSITIVE.value:
+            return {"sentiment": 'positive', "value": 1}
+        case Sentiment.NEGATIVE.value:
+            return {"sentiment": 'negative', "value": -1}
+        case Sentiment.NEUTRAL.value:
+            return {"sentiment": 'neutral', "value": 0}
+        case _:
+            raise HTTPException(status_code=400, detail="unexpected value")
+
+
 class SentimentClassifier:
     logger.info('Loading SetFit sentiment classifier ...')
     start = time()
-    model: SetFitModel = SetFitModel.from_pretrained("StatsGary/setfit-ft-sentinent-eval")
+    model: SetFitModel = SetFitModel.from_pretrained("StatsGary/setfit-ft-sentinent-eval",
+                                                     multi_target_strategy="multi-output",
+                                                     use_differentiable_head=True)
     logger.info(f'Time taken to load SetFit sentiment classifier = {time() - start}')
 
     def predict(self, text):
-        text = clean_text(text)
-        logger.info(f'cleaned text : {text}')
         start = time()
         output = self.model([text])
         logger.info(f'Inference time = {time() - start}')
-        return {"sentiment": 'positive', "value": 1} if output.item() == 1 else {"sentiment": 'negative', "value": -1}
+        return make_response(output.item())

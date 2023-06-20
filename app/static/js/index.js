@@ -191,7 +191,7 @@ function Form() {
   var debounceOnChange = react__WEBPACK_IMPORTED_MODULE_0___default().useCallback(debounce(onChange, 700), []);
   function onChange(value) {
     if (value) {
-      fetch("/api/sentiment", {
+      fetch("/api/analyze", {
         method: "POST",
         // *GET, POST, PUT, DELETE, etc.
         mode: "cors",
