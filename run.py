@@ -1,6 +1,8 @@
 import uvicorn
+from pathlib import Path
 
 if __name__ == '__main__':
+    Path.mkdir(Path.cwd() / 'logs', exist_ok=True)
     uvicorn.run(
         'app.main:app',
         host="localhost",
