@@ -8,7 +8,6 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from app.core.config import get_settings
-from app.core.event_handlers import start_app_handler, stop_app_handler
 from app.routers.router import api
 
 templates = Jinja2Templates(directory="app/templates")
@@ -35,8 +34,6 @@ def get_app(test_config=None) -> FastAPI:
     fast_app.add_middleware(CORSMiddleware, allow_origins=origins, allow_credentials=True, allow_methods=["*"],
                             allow_headers=["*"], )
 
-    fast_app.add_event_handler("startup", start_app_handler(fast_app))
-    fast_app.add_event_handler("shutdown", stop_app_handler())
     setup_routes(fast_app)
     return fast_app
 
@@ -60,7 +57,6 @@ async def add_process_time_header(request, call_next):
 
 
 logger = logging.getLogger(__name__)
-
 
 
 @app.get("/", response_class=HTMLResponse)
