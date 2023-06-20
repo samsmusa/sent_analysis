@@ -111,3 +111,5 @@ mix-manifest.json
 webpack.mix.js
 tailwind.config.js
 .vercel
+
+.space
