@@ -1,6 +1,10 @@
 # Sentiment Analysis
 
 This is a FastAPI application that performs sentiment analysis on text data. It provides a simple API for analyzing the sentiment of text inputs. <br>
+### Front-end(ReactJS)
+Find component inside
+> @user:~$ ./root/app/templates/assets/js/src
+
 see Sentiment analysis model  [https://huggingface.co/StatsGary/setfit-ft-sentinent-eval](https://huggingface.co/StatsGary/setfit-ft-sentinent-eval)
 ## Getting Started
 
@@ -95,5 +99,3 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 
 This project is licensed under the [MIT License](LICENSE).
 ```
-
-You can copy and paste this content into your README.md file on GitHub and adjust it as needed.
