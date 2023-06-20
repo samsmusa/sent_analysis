@@ -50,6 +50,7 @@ uvicorn app.main:app --reload --port 8000
 This command uses [uvicorn](https://www.uvicorn.org/) to run the application with automatic reloading enabled.
 
 The application will be accessible at `http://localhost:8000`.
+![browser](https://raw.githubusercontent.com/samsmusa/sent_analysis/main/Screenshot%20from%202023-06-20%2014-04-04.png)
 
 ### Documentation
 find swagger documentation , browse
