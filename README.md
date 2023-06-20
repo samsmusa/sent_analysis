@@ -88,7 +88,7 @@ Analyze the sentiment of a text input.
 Example cURL command:
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"text": "I love this product!"}' http://localhost:8000/api/sentiment
+curl -X POST -H "Content-Type: application/json" -d '{"text": "I love this product!"}' http://localhost:8000/api/analyze
 ```
 
 Example response:
