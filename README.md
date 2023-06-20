@@ -3,7 +3,7 @@
 This is a FastAPI application that performs sentiment analysis on text data. It provides a simple API for analyzing the sentiment of text inputs. <br>
 ### Front-end(ReactJS)
 Find component inside
-> @user:~$ ./root/app/templates/assets/js/src
+> @user:~$ ./app/templates/assets/js/src
 
 see Sentiment analysis model  [https://huggingface.co/StatsGary/setfit-ft-sentinent-eval](https://huggingface.co/StatsGary/setfit-ft-sentinent-eval)
 ## Getting Started
@@ -13,13 +13,13 @@ see Sentiment analysis model  [https://huggingface.co/StatsGary/setfit-ft-sentin
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/samsmusa/sentiment_analysis_v1.git
+   git clone https://github.com/samsmusa/sent_analysis
    ```
 
 2. Change into the project directory:
 
    ```bash
-   cd sentiment_analysis_v1
+   cd sent_analysis
    ```
    
 3. Create python virtual environment
@@ -35,6 +35,18 @@ see Sentiment analysis model  [https://huggingface.co/StatsGary/setfit-ft-sentin
    ```bash
    pip install -r requirements.txt
    ```
+6. Setting Environment Variable and logs 
+
+    ```bash
+   mkdir logs 
+   ```
+    ```bash
+    touch .env 
+   ```
+   ```bash
+   gedit .env 
+   ```
+copy & pate all environment variable from <strong>.env_example </strong>
 
 ### Running the Application
 
@@ -70,12 +82,13 @@ Analyze the sentiment of a text input.
   - `text` (string): The text input to analyze.
 
 - Response:
-  - `sentiment` (string): The sentiment of the text input. Possible values are "positive", "negative", or "neutral".
+  - `sentiment` (string): The sentiment of the text input. Possible values are "positive" or "negative".
+  - `value` (integer): The sentiment of the text input. Possible values are "1" or "-1".
 
 Example cURL command:
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"text": "I love this product!"}' http://localhost:8000/analyze
+curl -X POST -H "Content-Type: application/json" -d '{"text": "I love this product!"}' http://localhost:8000/api/sentiment
 ```
 
 Example response:
@@ -90,12 +103,3 @@ Example response:
 ## Deployment
 
 This application can be deployed using [Vercel](https://vercel.com/) or any other hosting platform that supports Python applications. Refer to the [Deployment Guide](https://vercel.com/guides/deploying-fastapi-to-vercel) for deploying a FastAPI application to Vercel.
-
-## Contributing
-
-Contributions are welcome! If you find any issues or have suggestions for improvement, please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-```

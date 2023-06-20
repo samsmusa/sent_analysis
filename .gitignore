@@ -104,12 +104,7 @@ htmlcov/
 .venv
 venv/
 node_modules/
-yarn.lock
-package.json
-babel.config.js
-mix-manifest.json
-webpack.mix.js
-tailwind.config.js
 .vercel
-
+.vercel/
+.space/
 .space

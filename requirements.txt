@@ -4,3 +4,6 @@ starlette~=0.27.0
 setfit~=0.7.0
 uvicorn~=0.22.0
 emoji~=2.5.1
+pytest~=7.3.2
+python-dotenv~=1.0.0
+httpx~=0.24.1
