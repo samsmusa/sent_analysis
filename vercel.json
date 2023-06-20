@@ -4,6 +4,13 @@
     {
       "src": "run.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "run.py",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "static_build"
+      }
     }
   ],
   "routes": [
